@@ -478,39 +478,47 @@ form textarea {
         padding: 15px 3%;
     }
 }
-@media (max-width: 1100px){
-    :root{
-        --big-font:4rem;
-        --h2-font:2.5rem;
-        --p-font:1rem;
+
+@media (max-width: 1100px) {
+    :root {
+        --big-font: 4rem;
+        --h2-font: 2.5rem;
+        --p-font: 1rem;
         transition: .1s;
     }
-    .home-text h3{
+
+    .home-text h3 {
         font-size: 2.5rem;
     }
-    .home{
+
+    .home {
         height: 87vh;
     }
 }
-@media (max-width:920){
-    .about{
+
+@media (max-width:920) {
+    .about {
         grid-template-columns: 1fr;
 
     }
-    .about-img img{
+
+    .about-img img {
         width: 100%;
         height: auto;
         max-width: 100%;
     }
-    .contact{
+
+    .contact {
         grid-template-columns: 1fr;
     }
 }
-@media (max-width: 480px){
-    #menu-icon{
+
+@media (max-width: 480px) {
+    #menu-icon {
         display: block;
     }
-    .navlist{
+
+    .navlist {
         position: absolute;
         top: -1000px;
         right: 0;
@@ -522,7 +530,8 @@ form textarea {
         transition: all .45s ease;
 
     }
-    .navlist a{
+
+    .navlist a {
         display: block;
         margin: 17px;
         font-size: 20px;
@@ -530,13 +539,20 @@ form textarea {
         color: var(--text-color);
 
     }
-    .navlist a:hover{
+
+    .navlist a:hover {
         color: var(--main-color);
     }
-    navlist a.active{
-        color: var(--text-color);
+
+    .navlist li a.active {
+        color: blue;
+        /* Change to the desired color */
+        font-weight: bold;
+        /* Optionally, make it bold */
     }
-    .navlist.open{
+
+
+    .navlist.open {
         top: 100%;
     }
 }

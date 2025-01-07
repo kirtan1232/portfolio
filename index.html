@@ -2,30 +2,30 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Responsive Portfolio Website</title>
-	<!---custom css link---->
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Kirtan Shrestha</title>
+	<link rel="icon" type="image/png" href="img/portfolio.png">
 	<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+
 </head>
 
 <body>
-	<!------Header Section------>
+	<!-- Header Section -->
 	<header>
 		<a href="#" class="logo">Port<span>foli</span>o..</a>
 		<ul class="navlist">
 			<li><a href="#home" class="active">Home</a></li>
 			<li><a href="#about">About Me</a></li>
 			<li><a href="#projects">Projects</a></li>
-			<!-- <li><a href="#portfolio">Portfolio</a></li> -->
 			<li><a href="#contact">Contact</a></li>
 		</ul>
 		<div class="bx bx-menu" id="menu-icon"></div>
 	</header>
 
-	<!---------Home Section--------------->
+	<!-- Home Section -->
 	<section class="home" id="home">
 		<div class="home-text">
 			<div class="slide">
@@ -41,7 +41,7 @@
 		</div>
 	</section>
 
-	<!---------About Section --------------->
+	<!-- About Section -->
 	<section class="about" id="about">
 		<div class="about-img">
 			<img src="img/about.jpg">
@@ -56,6 +56,8 @@
 			<a href="#" class="btn">More About</a>
 		</div>
 	</section>
+
+
 
 	<!-----------Projects Section-------------->
 	<section class="projects" id="projects">
@@ -111,70 +113,8 @@
 		</div>
 	</section>
 
-	<!-- ---------Portfolio Section-------------
-	<section class="portfolio" id="portfolio">
-		<div class="main-text">
-			<h2><span>latest</span>Project</h2>
-		</div>
-		<div class="portfolio-content">
-			<div class="row">
-				<img src="img/project1.jpg">
-				<div class="layer">
-					<h5>Visual Design</h5>
-					<p>Check out 10 best Design's updates for the top web design & development companies.</p>
-					<a href="#"> <i class='bx bx-link-external'></i></a>
-				</div>
-			</div>
 
-			<div class="row">
-				<img src="img/project2.jpg">
-				<div class="layer">
-					<h5>Visual Design</h5>
-					<p>Check out 10 best Design's updates for the top web design & development companies.</p>
-					<a href="#"> <i class='bx bx-link-external'></i></a>
-				</div>
-			</div>
-
-			<div class="row">
-				<img src="img/project3.jpg">
-				<div class="layer">
-					<h5>Visual Design</h5>
-					<p>Check out 10 best Design's updates for the top web design & development companies.</p>
-					<a href="#"> <i class='bx bx-link-external'></i></a>
-				</div>
-			</div>
-
-			<div class="row">
-				<img src="img/project4.jpg">
-				<div class="layer">
-					<h5>Visual Design</h5>
-					<p>Check out 10 best Design's updates for the top web design & development companies.</p>
-					<a href="#"> <i class='bx bx-link-external'></i></a>
-				</div>
-			</div>
-
-			<div class="row">
-				<img src="img/project5.jpg">
-				<div class="layer">
-					<h5>Visual Design</h5>
-					<p>Check out 10 best Design's updates for the top web design & development companies.</p>
-					<a href="#"> <i class='bx bx-link-external'></i></a>
-				</div>
-			</div>
-
-			<div class="row">
-				<img src="img/project6.jpg">
-				<div class="layer">
-					<h5>Visual Design</h5>
-					<p>Check out 10 best Design's updates for the top web design & development companies.</p>
-					<a href="#"> <i class='bx bx-link-external'></i></a>
-				</div>
-			</div>
-		</div>
-
-	</section> -->
-
-	<!------------------Contact section------------>
+	<!-- Contact Section -->
 	<section class="contact" id="contact">
 		<div class="contact-text">
 			<h2>Contact <span>Me!</span></h2>
@@ -183,25 +123,11 @@
 			<div class="list">
 				<li><a href="#">+977 9862242899</a></li>
 				<li><a href="#">shresthakirtan4@gmail.com</a></li>
-
 			</div>
 
 			<div class="contact-icons">
-				<a href="https://linkedin.com/in/kirtan2899" target="_blank">
-					<img src="data:image/png;base64,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"
-						alt="LinkedIn" width="24" height="24">
-					<span>LinkedIn</span>
-				</a>
-				<a href="https://github.com/kirtan1232?tab=repositories" target="_blank">
-					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2ss-h-Y9oWKXgZw2MRWrVydb-TdOdoaab9A&s"
-						alt="GitHub" width="24" height="24">
-					<span>GitHub</span>
-				</a>
+				<!-- Icons Here -->
 			</div>
-
-
-		</div>
-
 		</div>
 		<div class="contact-form">
 			<form action="">
@@ -211,21 +137,45 @@
 				<textarea name="" id="" cols="35" rows="10" placeholder="How Can I Help You " required></textarea>
 				<input type="submit" value="Send Message" class="submit" required>
 			</form>
-
 		</div>
 	</section>
 
-	<!---------End Section---------->
+
+
+	<!-- End Section -->
 	<section class="end">
 		<div class="last-text">
 			<p>© Kirtan Shrestha. All Rights Reserved</p>
 		</div>
 		<div class="top">
-
 			<a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
 		</div>
 	</section>
 
+	<script>
+		// Get all navigation links and sections
+		const navLinks = document.querySelectorAll('.navlist li a');
+		const sections = document.querySelectorAll('section');
+
+		// Add scroll event listener
+		window.addEventListener('scroll', () => {
+			let currentSection = '';
+
+			sections.forEach(section => {
+				const sectionTop = section.offsetTop;
+				const sectionHeight = section.clientHeight;
+				if (pageYOffset >= sectionTop - sectionHeight / 3) {
+					currentSection = section.getAttribute('id');
+				}
+			});
+
+			// Remove active class from all links
+			navLinks.forEach(link => link.classList.remove('active'));
+
+			// Add active class to the current section link
+			document.querySelector(`.navlist li a[href="#${currentSection}"]`).classList.add('active');
+		});
+	</script>
 </body>
 
 </html>
