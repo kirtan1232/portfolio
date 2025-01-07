@@ -8,8 +8,6 @@
 	<link rel="icon" type="image/png" href="img/portfolio.png">
 	<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 	<link rel="stylesheet" href="css/style.css">
-
-
 </head>
 
 <body>
@@ -57,8 +55,6 @@
 		</div>
 	</section>
 
-
-
 	<!-----------Projects Section-------------->
 	<section class="projects" id="projects">
 		<div class="main-text">
@@ -72,9 +68,10 @@
 				<h3>SuperMarket Assist Robot</h3>
 				<p>Programmed the robot’s navigation system in Python, integrating path-planning algorithms and obstacle
 					detection.</p>
-				<a href="#" class="btn"
-					onclick="alert('Developed a supermarket assist robot capable of detecting products using OpenCV-based technology. Built path-planning and navigation system for smooth operation.')">Read
+				<a href="javascript:void(0)" class="btn"
+					onclick="showDetails('SuperMarket Assist Robot', 'Developed a supermarket assist robot capable of detecting products using OpenCV-based technology. Built path-planning and navigation system for smooth operation.', this)">Read
 					More</a>
+				<p class="description"></p>
 			</div>
 
 			<div class="box">
@@ -83,9 +80,10 @@
 				</div>
 				<h3>KwickMeal (Restaurant Food Order Application)</h3>
 				<p>Developed a restaurant food ordering web application using Django with an MVC architecture.</p>
-				<a href="#" class="btn"
-					onclick="alert('Designed a responsive user interface using HTML and CSS. Implemented backend functionality for order management, menu updates, and payment integration using Django’s ORM.')">Read
+				<a href="javascript:void(0)" class="btn"
+					onclick="showDetails('KwickMeal', 'Designed a responsive user interface using HTML and CSS. Implemented backend functionality for order management, menu updates, and payment integration using Django’s ORM.', this)">Read
 					More</a>
+				<p class="description"></p>
 			</div>
 
 			<div class="box">
@@ -94,9 +92,10 @@
 				</div>
 				<h3>RuPay (Fees Management System)</h3>
 				<p>Developed a robust fees management system following the MVC architectural pattern.</p>
-				<a href="#" class="btn"
-					onclick="alert('Designed the application in Java with NetBeans. Integrated MySQL Workbench for database management and implemented GitHub OAuth to fetch user repository data.')">Read
+				<a href="javascript:void(0)" class="btn"
+					onclick="showDetails('RuPay', 'Designed the application in Java with NetBeans. Integrated MySQL Workbench for database management and implemented GitHub OAuth to fetch user repository data.', this)">Read
 					More</a>
+				<p class="description"></p>
 			</div>
 
 			<div class="box">
@@ -106,13 +105,32 @@
 				<h3>SuperMart Desktop Application</h3>
 				<p>Designed and developed a user-friendly desktop application for inventory management and sales
 					tracking.</p>
-				<a href="#" class="btn"
-					onclick="alert('Integrated MySQL database to handle product information, customer records, and transactional data. Implemented features like automated invoice generation.')">Read
+				<a href="javascript:void(0)" class="btn"
+					onclick="showDetails('SuperMart', 'Integrated MySQL database to handle product information, customer records, and transactional data. Implemented features like automated invoice generation.', this)">Read
 					More</a>
+				<p class="description"></p>
 			</div>
 		</div>
 	</section>
 
+	<!-- Details Box Section -->
+	<section id="project-details">
+		<div id="project-details-box">
+			<h3 id="project-title">Project Title</h3>
+			<p id="project-description">Project description will be shown here...</p>
+		</div>
+	</section>
+	<script>
+		// Function to show details and update the description text
+		function showDetails(title, description, button) {
+			// Update the content in the project description
+			button.nextElementSibling.innerText = description;
+
+			// Optionally, scroll to the description
+			button.nextElementSibling.style.display = "block";
+			button.scrollIntoView({ behavior: 'smooth' });
+		}
+	</script>
 
 	<!-- Contact Section -->
 	<section class="contact" id="contact">
@@ -139,8 +157,6 @@
 			</form>
 		</div>
 	</section>
-
-
 
 	<!-- End Section -->
 	<section class="end">
