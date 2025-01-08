@@ -32,9 +32,9 @@
 			</div>
 			<h1>Kirtan</h1>
 			<h3>Website <span>Designer.</span></h3>
-			<p>Welcome to my blog <br> Thank</p>
+			<p>Welcome to my blog <br>Check my projects which I had done. </p>
 			<div class="button">
-				<a href="#" class="btn">About Me</a>
+				<a href="#projects" class="btn">My Projects</a>
 			</div>
 		</div>
 	</section>
@@ -141,52 +141,67 @@
 				<!-- Icons Here -->
 			</div>
 		</div>
-		<div class="contact-form">
-			<form action="sendEmail.php" method="POST">
-				<input type="text" name="name" placeholder="Your Name" required>
-				<input type="email" name="email" placeholder="Your Email" required>
-				<input type="number" name="mobile" placeholder="Your Mobile Number" required>
-				<textarea name="message" cols="35" rows="10" placeholder="How Can I Help You" required></textarea>
-				<input type="submit" value="Send Message" class="submit">
-			</form>
+		<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+		<script>
+			(function () {
+				emailjs.init("S0anJfXRWJZTHHguC"); // Replace with your EmailJS User ID
+			})();
+		</script>
 
-		</div>
-	</section>
+		<form id="contact-form" onsubmit="sendEmail(event)">
+			<input type="text" name="name" placeholder="Your Name" required>
+			<input type="email" name="email" placeholder="Your Email" required>
+			<input type="number" name="mobile" placeholder="Your Mobile Number" required>
+			<textarea name="message" cols="35" rows="10" placeholder="How Can I Help You" required></textarea>
+			<input type="submit" value="Send Message" class="submit">
+		</form>
+		<script>
+			function sendEmail(event) {
+				event.preventDefault(); // Prevent form submission
+				emailjs.sendForm('service_2mokl6n', 'template_n8rop2s', '#contact-form')
+					.then(function (response) {
+						alert('Message sent successfully!');
+					}, function (error) {
+						alert('Failed to send message. Please try again.');
+					});
+			}
+		</script>
 
-	<!-- End Section -->
-	<section class="end">
-		<div class="last-text">
-			<p>© Kirtan Shrestha. All Rights Reserved</p>
-		</div>
-		<div class="top">
-			<a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
-		</div>
-	</section>
 
-	<script>
-		// Get all navigation links and sections
-		const navLinks = document.querySelectorAll('.navlist li a');
-		const sections = document.querySelectorAll('section');
+		<!-- End Section -->
+		<section class="end">
+			<div class="last-text">
+				<p>© Kirtan Shrestha. All Rights Reserved</p>
+			</div>
+			<div class="top">
+				<a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+			</div>
+		</section>
 
-		// Add scroll event listener
-		window.addEventListener('scroll', () => {
-			let currentSection = '';
+		<script>
+			// Get all navigation links and sections
+			const navLinks = document.querySelectorAll('.navlist li a');
+			const sections = document.querySelectorAll('section');
 
-			sections.forEach(section => {
-				const sectionTop = section.offsetTop;
-				const sectionHeight = section.clientHeight;
-				if (pageYOffset >= sectionTop - sectionHeight / 3) {
-					currentSection = section.getAttribute('id');
-				}
+			// Add scroll event listener
+			window.addEventListener('scroll', () => {
+				let currentSection = '';
+
+				sections.forEach(section => {
+					const sectionTop = section.offsetTop;
+					const sectionHeight = section.clientHeight;
+					if (pageYOffset >= sectionTop - sectionHeight / 3) {
+						currentSection = section.getAttribute('id');
+					}
+				});
+
+				// Remove active class from all links
+				navLinks.forEach(link => link.classList.remove('active'));
+
+				// Add active class to the current section link
+				document.querySelector(`.navlist li a[href="#${currentSection}"]`).classList.add('active');
 			});
-
-			// Remove active class from all links
-			navLinks.forEach(link => link.classList.remove('active'));
-
-			// Add active class to the current section link
-			document.querySelector(`.navlist li a[href="#${currentSection}"]`).classList.add('active');
-		});
-	</script>
+		</script>
 </body>
 
 </html>
