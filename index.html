@@ -142,13 +142,14 @@
 			</div>
 		</div>
 		<div class="contact-form">
-			<form action="">
-				<input type="name" placeholder="Your Name " required>
-				<input type="email" placeholder="Your Email " required>
-				<input type="number" placeholder="your Mobile Number" required>
-				<textarea name="" id="" cols="35" rows="10" placeholder="How Can I Help You " required></textarea>
-				<input type="submit" value="Send Message" class="submit" required>
+			<form action="sendEmail.php" method="POST">
+				<input type="text" name="name" placeholder="Your Name" required>
+				<input type="email" name="email" placeholder="Your Email" required>
+				<input type="number" name="mobile" placeholder="Your Mobile Number" required>
+				<textarea name="message" cols="35" rows="10" placeholder="How Can I Help You" required></textarea>
+				<input type="submit" value="Send Message" class="submit">
 			</form>
+
 		</div>
 	</section>
 
