@@ -1,207 +1,37 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Kirtan Shrestha</title>
-	<link rel="icon" type="image/png" href="img/portfolio.png">
-	<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-	<link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-	<!-- Header Section -->
-	<header>
-		<a href="#" class="logo">Port<span>foli</span>o..</a>
-		<ul class="navlist">
-			<li><a href="#home" class="active">Home</a></li>
-			<li><a href="#about">About Me</a></li>
-			<li><a href="#projects">Projects</a></li>
-			<li><a href="#contact">Contact</a></li>
-		</ul>
-		<div class="bx bx-menu" id="menu-icon"></div>
-	</header>
-
-	<!-- Home Section -->
-	<section class="home" id="home">
-		<div class="home-text">
-			<div class="slide">
-				<span class="one">Hello</span>
-				<span class="two">I'm</span>
-			</div>
-			<h1>Kirtan</h1>
-			<h3>Website <span>Designer.</span></h3>
-			<p>Welcome to my blog <br>Check my projects which I had done. </p>
-			<div class="button">
-				<a href="#projects" class="btn">My Projects</a>
-			</div>
-		</div>
-	</section>
-
-	<!-- About Section -->
-	<section class="about" id="about">
-		<div class="about-img">
-			<img src="img/about.jpg">
-		</div>
-
-		<div class="about-text">
-			<h2>About <span>Me</span></h2>
-			<h4>Newbie!</h4>
-			<p>Hello, I'm Kirtan. I am a newbie in website designing. I have a good knowledge of HTML, CSS, and
-				JavaScript. I have also learned Bootstrap and Tailwind CSS. I have made many projects using these
-				technologies.</p>
-			<a href="#" class="btn">More About</a>
-		</div>
-	</section>
-
-	<!-----------Projects Section-------------->
-	<section class="projects" id="projects">
-		<div class="main-text">
-			<h2><span>My</span> Projects</h2>
-		</div>
-		<div class="projects-content">
-			<div class="box">
-				<div class="s-icons">
-					<i class='bx bx-robot'></i>
-				</div>
-				<h3>SuperMarket Assist Robot</h3>
-				<p>Programmed the robot’s navigation system in Python, integrating path-planning algorithms and obstacle
-					detection.</p>
-				<a href="javascript:void(0)" class="btn"
-					onclick="showDetails('SuperMarket Assist Robot', 'Developed a supermarket assist robot capable of detecting products using OpenCV-based technology. Built path-planning and navigation system for smooth operation.', this)">Read
-					More</a>
-				<p class="description"></p>
-			</div>
-
-			<div class="box">
-				<div class="s-icons">
-					<i class='bx bx-dish'></i>
-				</div>
-				<h3>KwickMeal (Restaurant Food Order Application)</h3>
-				<p>Developed a restaurant food ordering web application using Django with an MVC architecture.</p>
-				<a href="javascript:void(0)" class="btn"
-					onclick="showDetails('KwickMeal', 'Designed a responsive user interface using HTML and CSS. Implemented backend functionality for order management, menu updates, and payment integration using Django’s ORM.', this)">Read
-					More</a>
-				<p class="description"></p>
-			</div>
-
-			<div class="box">
-				<div class="s-icons">
-					<i class='bx bx-credit-card'></i>
-				</div>
-				<h3>RuPay (Fees Management System)</h3>
-				<p>Developed a robust fees management system following the MVC architectural pattern.</p>
-				<a href="javascript:void(0)" class="btn"
-					onclick="showDetails('RuPay', 'Designed the application in Java with NetBeans. Integrated MySQL Workbench for database management and implemented GitHub OAuth to fetch user repository data.', this)">Read
-					More</a>
-				<p class="description"></p>
-			</div>
-
-			<div class="box">
-				<div class="s-icons">
-					<i class='bx bx-desktop'></i>
-				</div>
-				<h3>SuperMart Desktop Application</h3>
-				<p>Designed and developed a user-friendly desktop application for inventory management and sales
-					tracking.</p>
-				<a href="javascript:void(0)" class="btn"
-					onclick="showDetails('SuperMart', 'Integrated MySQL database to handle product information, customer records, and transactional data. Implemented features like automated invoice generation.', this)">Read
-					More</a>
-				<p class="description"></p>
-			</div>
-		</div>
-	</section>
-
-
-	<script>
-		// Function to show details and update the description text
-		function showDetails(title, description, button) {
-			// Update the content in the project description
-			button.nextElementSibling.innerText = description;
-
-			// Optionally, scroll to the description
-			button.nextElementSibling.style.display = "block";
-			button.scrollIntoView({ behavior: 'smooth' });
-		}
-	</script>
-
-	<!-- Contact Section -->
-	<section class="contact" id="contact">
-		<div class="contact-text">
-			<h2>Contact <span>Me!</span></h2>
-			<h4>If you have any project in your mind.</h4>
-			<p>I'm a website Designer - creating bold & brave interface design for companies all across the world.</p>
-			<div class="list">
-				<li><a href="#">+977 9862242899</a></li>
-				<li><a href="#">shresthakirtan4@gmail.com</a></li>
-			</div>
-
-			<div class="contact-icons">
-				<!-- Icons Here -->
-			</div>
-		</div>
-		<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-		<script>
-			(function () {
-				emailjs.init("S0anJfXRWJZTHHguC"); // Replace with your EmailJS User ID
-			})();
-		</script>
-
-		<form id="contact-form" onsubmit="sendEmail(event)">
-			<input type="text" name="name" placeholder="Your Name" required>
-			<input type="email" name="email" placeholder="Your Email" required>
-			<input type="number" name="mobile" placeholder="Your Mobile Number" required>
-			<textarea name="message" cols="35" rows="10" placeholder="How Can I Help You" required></textarea>
-			<input type="submit" value="Send Message" class="submit">
-		</form>
-		<script>
-			function sendEmail(event) {
-				event.preventDefault(); // Prevent form submission
-				emailjs.sendForm('service_2mokl6n', 'template_n8rop2s', '#contact-form')
-					.then(function (response) {
-						alert('Message sent successfully!');
-					}, function (error) {
-						alert('Failed to send message. Please try again.');
-					});
-			}
-		</script>
-
-
-		<!-- End Section -->
-		<section class="end">
-			<div class="last-text">
-				<p>© Kirtan Shrestha. All Rights Reserved</p>
-			</div>
-			<div class="top">
-				<a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
-			</div>
-		</section>
-
-		<script>
-			// Get all navigation links and sections
-			const navLinks = document.querySelectorAll('.navlist li a');
-			const sections = document.querySelectorAll('section');
-
-			// Add scroll event listener
-			window.addEventListener('scroll', () => {
-				let currentSection = '';
-
-				sections.forEach(section => {
-					const sectionTop = section.offsetTop;
-					const sectionHeight = section.clientHeight;
-					if (pageYOffset >= sectionTop - sectionHeight / 3) {
-						currentSection = section.getAttribute('id');
-					}
-				});
-
-				// Remove active class from all links
-				navLinks.forEach(link => link.classList.remove('active'));
-
-				// Add active class to the current section link
-				document.querySelector(`.navlist li a[href="#${currentSection}"]`).classList.add('active');
-			});
-		</script>
-</body>
-
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=no"
+    />
+    <title>Online Tuner</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas class="frequency-bars"></canvas>
+    <div class="meter">
+      <div class="meter-dot"></div>
+      <div class="meter-pointer"></div>
+    </div>
+    <div class="notes">
+      <div class="notes-list"></div>
+      <div class="frequency">
+        <span>Hz</span>
+      </div>
+    </div>
+    <div class="a4">A<sub>4</sub> = <span>440</span> Hz</div>
+    <label class="auto">
+      Auto
+      <input type="checkbox" checked />
+    </label>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aubiojs@0.1.1/build/aubio.min.js"></script>
+    <script src="tuner.js"></script>
+    <script src="meter.js"></script>
+    <script src="frequency-bars.js"></script>
+    <script src="notes.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
