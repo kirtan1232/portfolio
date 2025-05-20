@@ -41,12 +41,19 @@ body {
   overflow: -moz-scrollbars-none;
   white-space: nowrap;
   -ms-overflow-style: none;
-  -webkit-mask-image: -webkit-linear-gradient(
-    left,
-    rgba(255, 255, 255, 0),
-    #fff,
-    rgba(255, 255, 255, 0)
-  );
+  mask-image: linear-gradient(
+  to right,
+  rgba(255, 255, 255, 0),
+  #fff,
+  rgba(255, 255, 255, 0)
+);
+-webkit-mask-image: -webkit-linear-gradient(
+  left,
+  rgba(255, 255, 255, 0),
+  #fff,
+  rgba(255, 255, 255, 0)
+);
+
 }
 
 .notes-list::-webkit-scrollbar {
@@ -134,6 +141,36 @@ body {
   bottom: 0;
 }
 
+.guitar-strings {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 20px;
+}
+
+.guitar-string {
+  padding: 8px 12px;
+  background: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.guitar-string:hover {
+  background: #1a252f;
+}
+
+.guitar-string.active {
+  background: #27ae60;
+}
+
 @media (max-width: 768px) {
   .meter {
     width: 100%;
@@ -141,6 +178,11 @@ body {
 
   .notes {
     width: 100%;
+  }
+  
+  .guitar-strings {
+    flex-direction: column;
+    align-items: center;
   }
 }
 

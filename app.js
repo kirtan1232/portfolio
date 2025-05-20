@@ -11,6 +11,20 @@ const Application = function () {
     value: 69,
     cents: 0,
   });
+  
+  // Guitar standard tuning notes (EADGBE)
+  this.guitarStrings = {
+    "E2": { value: 16 * 12 + 4, octave: 2, name: "E", frequency: 82.41 },  // Low E (6th string)
+    "A2": { value: 17 * 12 + 9, octave: 2, name: "A", frequency: 110.00 }, // A (5th string)
+    "D3": { value: 18 * 12 + 2, octave: 3, name: "D", frequency: 146.83 }, // D (4th string)
+    "G3": { value: 19 * 12 + 7, octave: 3, name: "G", frequency: 196.00 }, // G (3rd string)
+    "B3": { value: 20 * 12 + 11, octave: 3, name: "B", frequency: 246.94 }, // B (2nd string)
+    "E4": { value: 21 * 12 + 4, octave: 4, name: "E", frequency: 329.63 }  // High E (1st string)
+  };
+  
+  this.currentString = null;
+  this.successSound = document.getElementById("successSound");
+  this.successSound = new Audio("data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU");
 };
 
 Application.prototype.initA4 = function () {
@@ -26,13 +40,25 @@ Application.prototype.start = function () {
     if (self.notes.isAutoMode) {
       if (self.lastNote === note.name) {
         self.update(note);
+        
+        // Check if current guitar string is in tune
+        if (self.currentString) {
+          const targetNote = self.guitarStrings[self.currentString];
+          if (note.name === targetNote.name && 
+              note.octave === targetNote.octave && 
+              Math.abs(note.cents) < 10) {
+            self.playSuccessSound();
+            self.highlightString(self.currentString, false);
+            self.currentString = null;
+          }
+        }
       } else {
         self.lastNote = note.name;
       }
     }
   };
 
-  swal.fire("Welcome to online tuner!").then(function () {
+  swal.fire("Welcome to Guitar Tuner!").then(function () {
     self.tuner.init();
     self.frequencyData = new Uint8Array(self.tuner.analyser.frequencyBinCount);
   });
@@ -59,11 +85,55 @@ Application.prototype.start = function () {
       });
   });
 
+  // Add guitar string button handlers
+  document.querySelectorAll('.guitar-string').forEach(button => {
+    button.addEventListener('click', function() {
+      const noteId = this.dataset.note;
+      const targetNote = self.guitarStrings[noteId];
+      
+      // Highlight the selected string
+      self.highlightString(noteId, true);
+      
+      // Set current string to check against
+      self.currentString = noteId;
+      
+      // Show the target note
+      self.update(targetNote);
+      
+    
+    });
+  });
+
   this.updateFrequencyBars();
 
   document.querySelector(".auto input").addEventListener("change", () => {
     this.notes.toggleAutoMode();
+    if (!this.notes.isAutoMode) {
+      this.currentString = null;
+      document.querySelectorAll('.guitar-string').forEach(btn => {
+        btn.classList.remove('active');
+      });
+    }
   });
+};
+
+Application.prototype.highlightString = function(noteId, active) {
+  document.querySelectorAll('.guitar-string').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  if (active) {
+    document.querySelector(`.guitar-string[data-note="${noteId}"]`).classList.add('active');
+  }
+};
+
+Application.prototype.playSuccessSound = function() {
+  try {
+    this.successSound.currentTime = 0;
+    this.successSound.play().catch(() => {});
+  } catch (e) {
+    // Fallback to simple beep
+    console.log("\x07"); // ASCII bell character
+  }
 };
 
 Application.prototype.updateFrequencyBars = function () {
