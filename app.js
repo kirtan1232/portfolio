@@ -103,6 +103,7 @@ Application.prototype.start = function () {
     button.addEventListener('click', function() {
       const noteId = this.dataset.note;
       if (self.currentString === noteId) {
+        // Toggle off if clicking the same string
         self.currentString = null;
         this.classList.remove('active');
       } else {

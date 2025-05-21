@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="header-container">
+      <div class="a4">Kirtan Shrestha  A<sub>4</sub> = <span>440</span> Hz</div>
+      <button class="theme-toggle" title="Toggle dark mode">🌓</button>
+      <label class="auto">
+        Tuner On/Off
+        <input type="checkbox" checked />
+      </label>
+    </div>
     <canvas class="frequency-bars"></canvas>
     <div class="meter">
       <div class="meter-dot"></div>
@@ -18,12 +26,6 @@
         <span>Hz</span>
       </div>
     </div>
-    <div class="a4">Kirtan Shrestha  A<sub>4</sub> = <span>440</span> Hz</div>
-    <button class="theme-toggle" title="Toggle dark mode">🌓</button>
-    <label class="auto">
-      Tuner On/Off
-      <input type="checkbox" checked />
-    </label>
     <div class="guitar-strings">
       <button class="guitar-string" data-note="E2">Low E (6th)</button>
       <button class="guitar-string" data-note="A2">A (5th)</button>
@@ -33,7 +35,6 @@
       <button class="guitar-string" data-note="E4">High E (1st)</button>
     </div>
     <script>
-      // Base64 encoded beep sound
       const successSound = new Audio("data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU");
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
