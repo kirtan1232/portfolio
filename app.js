@@ -12,7 +12,6 @@ const Application = function () {
     cents: 0,
   });
   
-  // Guitar standard tuning notes (EADGBE)
   this.guitarStrings = {
     "E2": { value: 16 * 12 + 4, octave: 2, name: "E", frequency: 82.41 },
     "A2": { value: 17 * 12 + 9, octave: 2, name: "A", frequency: 110.00 },
@@ -24,8 +23,6 @@ const Application = function () {
   
   this.currentString = null;
   this.successSound = new Audio("success.mp3");
-  
-  // Initialize theme
   this.initTheme();
 };
 
@@ -33,9 +30,7 @@ Application.prototype.initTheme = function() {
   this.themeToggle = document.querySelector('.theme-toggle');
   this.currentTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', this.currentTheme);
-  
   this.themeToggle.textContent = this.currentTheme === 'light' ? '🌓' : '☀️';
-  
   this.themeToggle.addEventListener('click', () => {
     this.toggleTheme();
   });
@@ -69,8 +64,6 @@ Application.prototype.start = function () {
               note.octave === targetNote.octave && 
               Math.abs(note.cents) < 10) {
             self.playSuccessSound();
-            self.highlightString(self.currentString, false);
-            self.currentString = null;
           }
         }
       } else {
@@ -109,10 +102,15 @@ Application.prototype.start = function () {
   document.querySelectorAll('.guitar-string').forEach(button => {
     button.addEventListener('click', function() {
       const noteId = this.dataset.note;
-      const targetNote = self.guitarStrings[noteId];
-      self.highlightString(noteId, true);
-      self.currentString = noteId;
-      self.update(targetNote);
+      if (self.currentString === noteId) {
+        self.currentString = null;
+        this.classList.remove('active');
+      } else {
+        const targetNote = self.guitarStrings[noteId];
+        self.highlightString(noteId, true);
+        self.currentString = noteId;
+        self.update(targetNote);
+      }
     });
   });
 
