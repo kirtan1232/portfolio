@@ -25,6 +25,34 @@ const Application = function () {
   this.currentString = null;
   this.successSound = document.getElementById("successSound");
   this.successSound = new Audio("data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU");
+  
+  // Initialize theme
+  this.initTheme();
+};
+
+Application.prototype.initTheme = function() {
+  this.themeToggle = document.querySelector('.theme-toggle');
+  this.currentTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', this.currentTheme);
+  
+  // Set initial icon
+  this.themeToggle.textContent = this.currentTheme === 'light' ? '🌓' : '☀️';
+  
+  this.themeToggle.addEventListener('click', () => {
+    this.toggleTheme();
+  });
+};
+
+Application.prototype.toggleTheme = function() {
+  this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', this.currentTheme);
+  localStorage.setItem('theme', this.currentTheme);
+  
+  // Update the toggle button emoji
+  this.themeToggle.textContent = this.currentTheme === 'light' ? '🌓' : '☀️';
+  
+  // Update frequency bars color
+  this.frequencyBars.update(this.frequencyData || new Uint8Array(0));
 };
 
 Application.prototype.initA4 = function () {
@@ -99,8 +127,6 @@ Application.prototype.start = function () {
       
       // Show the target note
       self.update(targetNote);
-      
-    
     });
   });
 
@@ -131,8 +157,7 @@ Application.prototype.playSuccessSound = function() {
     this.successSound.currentTime = 0;
     this.successSound.play().catch(() => {});
   } catch (e) {
-    // Fallback to simple beep
-    console.log("\x07"); // ASCII bell character
+    console.log("\x07");
   }
 };
 
