@@ -10,12 +10,13 @@ FrequencyBars.prototype.update = function (data) {
   const width = this.$canvas.width / length - 0.5;
   this.canvasContext.clearRect(0, 0, this.$canvas.width, this.$canvas.height);
   
-  // Get the current theme's note background color
-  const noteBg = getComputedStyle(document.documentElement)
-    .getPropertyValue('--note-bg').trim() || '#ecf0f1';
+  const styles = getComputedStyle(document.documentElement);
+  const noteBg = styles.getPropertyValue('--note-bg').trim() || '#ecf0f1';
+  const activeColor = styles.getPropertyValue('--active-color').trim() || '#e74c3c';
   
   for (var i = 0; i < length; i += 1) {
-    this.canvasContext.fillStyle = noteBg;
+    const isActiveBar = data[i] > this.$canvas.height * 0.7;
+    this.canvasContext.fillStyle = isActiveBar ? activeColor : noteBg;
     this.canvasContext.fillRect(
       i * (width + 0.5),
       this.$canvas.height - data[i],

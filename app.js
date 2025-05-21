@@ -14,17 +14,16 @@ const Application = function () {
   
   // Guitar standard tuning notes (EADGBE)
   this.guitarStrings = {
-    "E2": { value: 16 * 12 + 4, octave: 2, name: "E", frequency: 82.41 },  // Low E (6th string)
-    "A2": { value: 17 * 12 + 9, octave: 2, name: "A", frequency: 110.00 }, // A (5th string)
-    "D3": { value: 18 * 12 + 2, octave: 3, name: "D", frequency: 146.83 }, // D (4th string)
-    "G3": { value: 19 * 12 + 7, octave: 3, name: "G", frequency: 196.00 }, // G (3rd string)
-    "B3": { value: 20 * 12 + 11, octave: 3, name: "B", frequency: 246.94 }, // B (2nd string)
-    "E4": { value: 21 * 12 + 4, octave: 4, name: "E", frequency: 329.63 }  // High E (1st string)
+    "E2": { value: 16 * 12 + 4, octave: 2, name: "E", frequency: 82.41 },
+    "A2": { value: 17 * 12 + 9, octave: 2, name: "A", frequency: 110.00 },
+    "D3": { value: 18 * 12 + 2, octave: 3, name: "D", frequency: 146.83 },
+    "G3": { value: 19 * 12 + 7, octave: 3, name: "G", frequency: 196.00 },
+    "B3": { value: 20 * 12 + 11, octave: 3, name: "B", frequency: 246.94 },
+    "E4": { value: 21 * 12 + 4, octave: 4, name: "E", frequency: 329.63 }
   };
   
   this.currentString = null;
-  this.successSound = document.getElementById("successSound");
-  this.successSound = new Audio("data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU");
+  this.successSound = new Audio("success.mp3");
   
   // Initialize theme
   this.initTheme();
@@ -35,7 +34,6 @@ Application.prototype.initTheme = function() {
   this.currentTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', this.currentTheme);
   
-  // Set initial icon
   this.themeToggle.textContent = this.currentTheme === 'light' ? '🌓' : '☀️';
   
   this.themeToggle.addEventListener('click', () => {
@@ -47,11 +45,7 @@ Application.prototype.toggleTheme = function() {
   this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
   document.documentElement.setAttribute('data-theme', this.currentTheme);
   localStorage.setItem('theme', this.currentTheme);
-  
-  // Update the toggle button emoji
   this.themeToggle.textContent = this.currentTheme === 'light' ? '🌓' : '☀️';
-  
-  // Update frequency bars color
   this.frequencyBars.update(this.frequencyData || new Uint8Array(0));
 };
 
@@ -69,7 +63,6 @@ Application.prototype.start = function () {
       if (self.lastNote === note.name) {
         self.update(note);
         
-        // Check if current guitar string is in tune
         if (self.currentString) {
           const targetNote = self.guitarStrings[self.currentString];
           if (note.name === targetNote.name && 
@@ -113,19 +106,12 @@ Application.prototype.start = function () {
       });
   });
 
-  // Add guitar string button handlers
   document.querySelectorAll('.guitar-string').forEach(button => {
     button.addEventListener('click', function() {
       const noteId = this.dataset.note;
       const targetNote = self.guitarStrings[noteId];
-      
-      // Highlight the selected string
       self.highlightString(noteId, true);
-      
-      // Set current string to check against
       self.currentString = noteId;
-      
-      // Show the target note
       self.update(targetNote);
     });
   });
