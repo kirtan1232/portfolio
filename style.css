@@ -38,16 +38,30 @@ body {
   user-select: none;
   transition: background-color 0.3s, color 0.3s;
 }
-
+.header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 100;
+  background-color: var(--bg-color);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
 .notes {
   margin: auto;
   width: 400px;
   position: fixed;
-  top: 50%;
+  top: 45%;
   left: 0;
   right: 0;
   text-align: center;
 }
+
 
 .note {
   font-size: 90px;
@@ -58,6 +72,7 @@ body {
   padding-left: 10px;
   color: var(--text-color);
 }
+
 
 .note.active {
   color: var(--active-color);
@@ -119,10 +134,10 @@ body {
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 50%;
+  bottom: 55%;
   width: 400px;
-  height: 33%;
-  margin: 0 auto 5vh auto;
+  height: 25%;
+  margin: 0 auto;
 }
 
 .meter-pointer {
@@ -212,9 +227,11 @@ body {
 }
 
 .a4 {
-  position: absolute;
-  top: 16px;
-  left: 16px;
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 40%;
 }
 
 .a4 span {
@@ -222,18 +239,14 @@ body {
 }
 
 .auto {
-  position: absolute;
-  top: 16px;
-  right: 16px;
   display: flex;
   align-items: center;
   gap: 5px;
+  font-size: 14px;
 }
 
+
 .theme-toggle {
-  position: absolute;
-  top: 16px;
-  right: 140px;
   background: none;
   border: none;
   color: var(--text-color);
@@ -242,89 +255,78 @@ body {
   padding: 0;
   width: 30px;
   height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  .meter {
-    width: 90%;
-    height: 25%;
-    bottom: 55%;
+  .header-container {
+    height: 40px;
+    padding: 0 10px;
   }
-
-  .notes {
-    width: 100%;
-    top: 40%;
-  }
-
-  .note {
-    font-size: 60px;
-  }
-
-  .frequency {
-    font-size: 24px;
-  }
-
-  .guitar-strings {
-    bottom: 10px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .guitar-string {
-    padding: 6px 10px;
-    font-size: 12px;
+  
+  .a4 {
+    font-size: 14px;
+    max-width: 35%;
   }
 
   .auto {
-    right: 80px;
-    font-size: 14px;
+    font-size: 12px;
   }
-  
-  .theme-toggle {
-    right: 130px;
-  }
-}
 
-@media (max-width: 480px) {
+  .theme-toggle {
+    font-size: 20px;
+  }
+
   .meter {
+    width: 90%;
     height: 20%;
     bottom: 60%;
   }
 
   .notes {
     top: 35%;
+    width: 100%;
   }
 
   .note {
-    font-size: 48px;
+    font-size: 50px;
   }
 
-  .frequency {
-    font-size: 20px;
+  .guitar-strings {
+    bottom: 10px;
+    padding: 0 10px;
   }
 
   .guitar-string {
-    padding: 5px 8px;
-    font-size: 11px;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .a4 {
+    font-size: 12px;
   }
 
   .auto {
-    right: 70px;
-    font-size: 12px;
+    font-size: 11px;
   }
-  
-  .theme-toggle {
-    right: 120px;
+
+  .meter {
+    height: 18%;
+    bottom: 62%;
   }
-  
-  .a4 {
-    font-size: 14px;
-    top: 10px;
-    left: 10px;
+
+  .notes {
+    top: 32%;
+  }
+
+  .note {
+    font-size: 40px;
+  }
+
+  .guitar-string {
+    padding: 6px 8px;
+    font-size: 11px;
   }
 }
