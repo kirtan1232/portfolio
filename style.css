@@ -168,6 +168,7 @@ body {
   background-color: var(--bg-color);
 }
 
+/* Update existing .guitar-strings media queries */
 .guitar-strings {
   position: fixed;
   bottom: 20px;
@@ -178,6 +179,8 @@ body {
   justify-content: center;
   gap: 10px;
   padding: 0 20px;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .guitar-string {
@@ -189,28 +192,66 @@ body {
   cursor: pointer;
   font-size: 14px;
   transition: background 0.3s;
-}
-
-.guitar-string:hover {
-  background: var(--button-hover);
-}
-
-.guitar-string.active {
-  background: var(--button-active);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
-  .meter {
-    width: 100%;
-  }
-
-  .notes {
-    width: 100%;
+  .guitar-strings {
+    flex-direction: row;
+    gap: 8px;
+    padding: 0 10px;
+    bottom: 15px;
   }
   
+  .guitar-string {
+    font-size: 12px;
+    padding: 6px 10px;
+    flex-grow: 1;
+    max-width: calc(50% - 4px);
+  }
+}
+
+@media (max-width: 480px) {
   .guitar-strings {
     flex-direction: column;
-    align-items: center;
+    gap: 6px;
+    width: 90%;
+    margin: 0 auto;
+    bottom: 10px;
+  }
+  
+  .guitar-string {
+    font-size: 11px;
+    padding: 5px 8px;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .meter {
+    bottom: 55%;
+  }
+  
+  .notes {
+    top: 45%;
+  }
+}
+
+/* Add this to handle landscape orientation */
+@media (max-height: 500px) and (orientation: landscape) {
+  .guitar-strings {
+    position: relative;
+    bottom: auto;
+    margin-top: 10px;
+  }
+  
+  .meter {
+    bottom: 40%;
+  }
+  
+  .notes {
+    top: 35%;
   }
 }
 
