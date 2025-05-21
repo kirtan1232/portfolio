@@ -39,62 +39,11 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-.header-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  z-index: 100;
-  background-color: var(--bg-color);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.a4 {
-  font-size: 16px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 40%;
-}
-
-.auto {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 14px;
-}
-
-.theme-toggle {
-  background: none;
-  border: none;
-  color: var(--text-color);
-  cursor: pointer;
-  font-size: 24px;
-  padding: 0;
-  width: 30px;
-  height: 30px;
-}
-
-.meter {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 55%;
-  width: 400px;
-  height: 25%;
-  margin: 0 auto;
-}
-
 .notes {
   margin: auto;
   width: 400px;
   position: fixed;
-  top: 45%;
+  top: 50%;
   left: 0;
   right: 0;
   text-align: center;
@@ -110,79 +59,272 @@ body {
   color: var(--text-color);
 }
 
+.note.active {
+  color: var(--active-color);
+}
+
+.notes-list {
+  overflow: auto;
+  overflow: -moz-scrollbars-none;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  mask-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    var(--bg-color),
+    rgba(255, 255, 255, 0)
+  );
+  -webkit-mask-image: -webkit-linear-gradient(
+    left,
+    rgba(255, 255, 255, 0),
+    var(--bg-color),
+    rgba(255, 255, 255, 0)
+  );
+}
+
+.notes-list::-webkit-scrollbar {
+  display: none;
+}
+
+.note {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.note span {
+  position: absolute;
+  right: 0.25em;
+  font-size: 40%;
+  font-weight: normal;
+}
+
+.note-sharp {
+  top: 0.3em;
+}
+
+.note-octave {
+  bottom: 0.3em;
+}
+
+.frequency {
+  font-size: 32px;
+  color: var(--text-color);
+}
+
+.frequency span {
+  font-size: 50%;
+  margin-left: 0.25em;
+}
+
+.meter {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 50%;
+  width: 400px;
+  height: 33%;
+  margin: 0 auto 5vh auto;
+}
+
+.meter-pointer {
+  width: 2px;
+  height: 100%;
+  background: var(--meter-color);
+  transform: rotate(45deg);
+  transform-origin: bottom;
+  transition: transform 0.5s;
+  position: absolute;
+  right: 50%;
+}
+
+.meter-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--meter-color);
+  border-radius: 50%;
+  position: absolute;
+  bottom: -5px;
+  right: 50%;
+  margin-right: -4px;
+}
+
+.meter-scale {
+  width: 1px;
+  height: 100%;
+  transform-origin: bottom;
+  transition: transform 0.2s;
+  box-sizing: border-box;
+  border-top: 10px solid;
+  border-color: var(--meter-color);
+  position: absolute;
+  right: 50%;
+}
+
+.meter-scale-strong {
+  width: 2px;
+  border-top-width: 20px;
+}
+
+.frequency-bars {
+  position: fixed;
+  bottom: 0;
+  background-color: var(--bg-color);
+  opacity: 0.9;
+}
+
+.guitar-strings {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 20px;
+}
+
+.guitar-string {
+  padding: 8px 12px;
+  background: var(--button-bg);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.guitar-string:hover {
+  background: var(--button-hover);
+}
+
+.guitar-string.active {
+  background: var(--button-active);
+}
+
+.swal-button {
+  background: var(--button-bg);
+  color: white;
+}
+
+.swal-button:not([disabled]):hover {
+  background: var(--button-hover);
+}
+
+.a4 {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.a4 span {
+  color: var(--active-color);
+}
+
+.auto {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 16px;
+  right: 140px;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 24px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
-  .header-container {
-    height: 40px;
-    padding: 0 10px;
-  }
-  
-  .a4 {
-    font-size: 14px;
-    max-width: 35%;
+  .meter {
+    width: 90%;
+    height: 25%;
+    bottom: 55%;
   }
 
-  .auto {
+  .notes {
+    width: 100%;
+    top: 40%;
+  }
+
+  .note {
+    font-size: 60px;
+  }
+
+  .frequency {
+    font-size: 24px;
+  }
+
+  .guitar-strings {
+    bottom: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .guitar-string {
+    padding: 6px 10px;
     font-size: 12px;
   }
 
-  .theme-toggle {
-    font-size: 20px;
+  .auto {
+    right: 80px;
+    font-size: 14px;
   }
+  
+  .theme-toggle {
+    right: 130px;
+  }
+}
 
+@media (max-width: 480px) {
   .meter {
-    width: 90%;
     height: 20%;
     bottom: 60%;
   }
 
   .notes {
     top: 35%;
-    width: 100%;
   }
 
   .note {
-    font-size: 50px;
+    font-size: 48px;
   }
 
-  .guitar-strings {
-    bottom: 10px;
-    padding: 0 10px;
+  .frequency {
+    font-size: 20px;
   }
 
   .guitar-string {
-    padding: 8px 10px;
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .a4 {
-    font-size: 12px;
+    padding: 5px 8px;
+    font-size: 11px;
   }
 
   .auto {
-    font-size: 11px;
+    right: 70px;
+    font-size: 12px;
   }
-
-  .meter {
-    height: 18%;
-    bottom: 62%;
+  
+  .theme-toggle {
+    right: 120px;
   }
-
-  .notes {
-    top: 32%;
-  }
-
-  .note {
-    font-size: 40px;
-  }
-
-  .guitar-string {
-    padding: 6px 8px;
-    font-size: 11px;
+  
+  .a4 {
+    font-size: 14px;
+    top: 10px;
+    left: 10px;
   }
 }
-
-/* Rest of your existing CSS styles */
-/* ... (keep all other existing CSS rules unchanged) ... */
