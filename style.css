@@ -109,11 +109,15 @@ body {
 }
 
 .note-sharp {
-  top: 0.4em;
+  top: 0.2em; /* Moved higher */
+  right: 0.3em;
+  transform: translateY(-10%); /* Additional upward nudge */
 }
 
 .note-octave {
-  bottom: 0.4em;
+  bottom: 0.1em; /* Moved lower */
+  right: 0.3em;
+  transform: translateY(10%); /* Additional downward nudge */
 }
 
 .frequency {
