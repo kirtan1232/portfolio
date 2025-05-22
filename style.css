@@ -37,15 +37,10 @@ body {
   cursor: default;
   user-select: none;
   transition: background-color 0.3s, color 0.3s;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Changed to flex-start to move content down */
-  align-items: center;
-  padding-top: 10%; /* Adds space from the top to shift content downward */
 }
 
 .header-container {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -62,11 +57,11 @@ body {
 .notes {
   margin: auto;
   width: 500px;
+  position: fixed;
+  top: 45%;
+  left: 0;
+  right: 0;
   text-align: center;
-  position: relative;
-  top: auto;
-  left: auto;
-  right: auto;
 }
 
 .note {
@@ -124,8 +119,6 @@ body {
 .frequency {
   font-size: 40px;
   color: var(--text-color);
-  position: relative;
-  text-align: center;
 }
 
 .frequency span {
@@ -134,7 +127,10 @@ body {
 }
 
 .meter {
-  position: relative;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 55%;
   width: 500px;
   height: 30%;
   margin: 0 auto;
@@ -182,15 +178,15 @@ body {
 .frequency-bars {
   position: fixed;
   bottom: 0;
-  width: 100%;
   background-color: var(--bg-color);
   opacity: 0.9;
+  width: 100%;
   height: 30%;
 }
 
 .guitar-strings {
-  position: relative;
-  bottom: auto;
+  position: fixed;
+  bottom: 30px;
   left: 0;
   right: 0;
   display: flex;
@@ -198,7 +194,6 @@ body {
   justify-content: center;
   gap: 15px;
   padding: 0 30px;
-  margin-top: 20px; /* Kept to maintain space below centered content */
 }
 
 .guitar-string {
@@ -284,10 +279,12 @@ body {
   .meter {
     width: 90%;
     height: 25%;
+    bottom: 58%;
   }
 
   .notes {
-    width: 90%;
+    top: 38%;
+    width: 100%;
   }
 
   .note {
@@ -305,18 +302,14 @@ body {
   }
 
   .guitar-strings {
+    bottom: 15px;
     padding: 0 15px;
     gap: 10px;
-    margin-top: 15px;
   }
 
   .guitar-string {
     padding: 10px 14px;
     font-size: 16px;
-  }
-
-  body {
-    padding-top: 15%; /* Adjusted for smaller screens */
   }
 }
 
@@ -341,12 +334,12 @@ body {
   }
 
   .meter {
-    width: 90%;
     height: 22%;
+    bottom: 60%;
   }
 
   .notes {
-    width: 90%;
+    top: 35%;
   }
 
   .note {
@@ -364,17 +357,13 @@ body {
   }
 
   .guitar-strings {
+    bottom: 10px;
     padding: 0 10px;
     gap: 8px;
-    margin-top: 10px;
   }
 
   .guitar-string {
     padding: 8px 12px;
     font-size: 14px;
-  }
-
-  body {
-    padding-top: 20%; /* Adjusted for smaller screens */
   }
 }
