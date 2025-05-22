@@ -277,9 +277,10 @@ body {
   }
 
   .meter {
-    width: 90%;
-    height: 25%;
-    bottom: 58%;
+    width: 95%;
+    height: 30%;
+    bottom: 50%;
+    margin: 0 auto;
   }
 
   .notes {
@@ -334,8 +335,10 @@ body {
   }
 
   .meter {
-    height: 22%;
-    bottom: 60%;
+    width: 95%;
+    height: 28%;
+    bottom: 50%;
+    margin: 0 auto;
   }
 
   .notes {
