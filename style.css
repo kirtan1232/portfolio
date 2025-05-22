@@ -38,23 +38,25 @@ body {
   user-select: none;
   transition: background-color 0.3s, color 0.3s;
 }
+
 .header-container {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 50px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 30px;
   z-index: 100;
   background-color: var(--bg-color);
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+
 .notes {
   margin: auto;
-  width: 400px;
+  width: 500px;
   position: fixed;
   top: 45%;
   left: 0;
@@ -62,17 +64,15 @@ body {
   text-align: center;
 }
 
-
 .note {
-  font-size: 90px;
+  font-size: 120px;
   font-weight: bold;
   position: relative;
   display: inline-block;
-  padding-right: 30px;
-  padding-left: 10px;
+  padding-right: 40px;
+  padding-left: 15px;
   color: var(--text-color);
 }
-
 
 .note.active {
   color: var(--active-color);
@@ -101,33 +101,29 @@ body {
   display: none;
 }
 
-.note {
-  -webkit-tap-highlight-color: transparent;
-}
-
 .note span {
   position: absolute;
-  right: 0.25em;
-  font-size: 40%;
+  right: 0.3em;
+  font-size: 50%;
   font-weight: normal;
 }
 
 .note-sharp {
-  top: 0.3em;
+  top: 0.4em;
 }
 
 .note-octave {
-  bottom: 0.3em;
+  bottom: 0.4em;
 }
 
 .frequency {
-  font-size: 32px;
+  font-size: 40px;
   color: var(--text-color);
 }
 
 .frequency span {
   font-size: 50%;
-  margin-left: 0.25em;
+  margin-left: 0.3em;
 }
 
 .meter {
@@ -135,13 +131,13 @@ body {
   left: 0;
   right: 0;
   bottom: 55%;
-  width: 400px;
-  height: 25%;
+  width: 500px;
+  height: 30%;
   margin: 0 auto;
 }
 
 .meter-pointer {
-  width: 2px;
+  width: 3px;
   height: 100%;
   background: var(--meter-color);
   transform: rotate(45deg);
@@ -152,31 +148,31 @@ body {
 }
 
 .meter-dot {
-  width: 10px;
-  height: 10px;
+  width: 14px;
+  height: 14px;
   background: var(--meter-color);
   border-radius: 50%;
   position: absolute;
-  bottom: -5px;
+  bottom: -7px;
   right: 50%;
-  margin-right: -4px;
+  margin-right: -6px;
 }
 
 .meter-scale {
-  width: 1px;
+  width: 1.5px;
   height: 100%;
   transform-origin: bottom;
   transition: transform 0.2s;
   box-sizing: border-box;
-  border-top: 10px solid;
+  border-top: 15px solid;
   border-color: var(--meter-color);
   position: absolute;
   right: 50%;
 }
 
 .meter-scale-strong {
-  width: 2px;
-  border-top-width: 20px;
+  width: 3px;
+  border-top-width: 25px;
 }
 
 .frequency-bars {
@@ -184,28 +180,30 @@ body {
   bottom: 0;
   background-color: var(--bg-color);
   opacity: 0.9;
+  width: 100%;
+  height: 30%;
 }
 
 .guitar-strings {
   position: fixed;
-  bottom: 20px;
+  bottom: 30px;
   left: 0;
   right: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
-  padding: 0 20px;
+  gap: 15px;
+  padding: 0 30px;
 }
 
 .guitar-string {
-  padding: 8px 12px;
+  padding: 12px 18px;
   background: var(--button-bg);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 18px;
   transition: background 0.3s;
 }
 
@@ -227,7 +225,7 @@ body {
 }
 
 .a4 {
-  font-size: 16px;
+  font-size: 20px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -241,32 +239,88 @@ body {
 .auto {
   display: flex;
   align-items: center;
-  gap: 5px;
-  font-size: 14px;
+  gap: 8px;
+  font-size: 18px;
 }
-
 
 .theme-toggle {
   background: none;
   border: none;
   color: var(--text-color);
   cursor: pointer;
-  font-size: 24px;
+  font-size: 28px;
   padding: 0;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
   .header-container {
-    height: 40px;
+    height: 50px;
+    padding: 0 15px;
+  }
+
+  .a4 {
+    font-size: 16px;
+    max-width: 35%;
+  }
+
+  .auto {
+    font-size: 14px;
+  }
+
+  .theme-toggle {
+    font-size: 24px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .meter {
+    width: 90%;
+    height: 25%;
+    bottom: 58%;
+  }
+
+  .notes {
+    top: 38%;
+    width: 100%;
+  }
+
+  .note {
+    font-size: 80px;
+    padding-right: 30px;
+    padding-left: 10px;
+  }
+
+  .frequency {
+    font-size: 32px;
+  }
+
+  .frequency-bars {
+    height: 25%;
+  }
+
+  .guitar-strings {
+    bottom: 15px;
+    padding: 0 15px;
+    gap: 10px;
+  }
+
+  .guitar-string {
+    padding: 10px 14px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    height: 45px;
     padding: 0 10px;
   }
-  
+
   .a4 {
     font-size: 14px;
-    max-width: 35%;
   }
 
   .auto {
@@ -275,58 +329,41 @@ body {
 
   .theme-toggle {
     font-size: 20px;
+    width: 32px;
+    height: 32px;
   }
 
   .meter {
-    width: 90%;
-    height: 20%;
+    height: 22%;
     bottom: 60%;
   }
 
   .notes {
     top: 35%;
-    width: 100%;
   }
 
   .note {
-    font-size: 50px;
+    font-size: 60px;
+    padding-right: 20px;
+    padding-left: 8px;
+  }
+
+  .frequency {
+    font-size: 28px;
+  }
+
+  .frequency-bars {
+    height: 20%;
   }
 
   .guitar-strings {
     bottom: 10px;
     padding: 0 10px;
+    gap: 8px;
   }
 
   .guitar-string {
-    padding: 8px 10px;
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .a4 {
-    font-size: 12px;
-  }
-
-  .auto {
-    font-size: 11px;
-  }
-
-  .meter {
-    height: 18%;
-    bottom: 62%;
-  }
-
-  .notes {
-    top: 32%;
-  }
-
-  .note {
-    font-size: 40px;
-  }
-
-  .guitar-string {
-    padding: 6px 8px;
-    font-size: 11px;
+    padding: 8px 12px;
+    font-size: 14px;
   }
 }
