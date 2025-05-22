@@ -37,10 +37,14 @@ body {
   cursor: default;
   user-select: none;
   transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .header-container {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -57,11 +61,11 @@ body {
 .notes {
   margin: auto;
   width: 500px;
-  position: fixed;
-  top: 45%;
-  left: 0;
-  right: 0;
   text-align: center;
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
 }
 
 .note {
@@ -119,6 +123,8 @@ body {
 .frequency {
   font-size: 40px;
   color: var(--text-color);
+  position: relative;
+  text-align: center;
 }
 
 .frequency span {
@@ -127,10 +133,7 @@ body {
 }
 
 .meter {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 55%;
+  position: relative;
   width: 500px;
   height: 30%;
   margin: 0 auto;
@@ -176,17 +179,16 @@ body {
 }
 
 .frequency-bars {
-  position: fixed;
-  bottom: 0;
-  background-color: var(--bg-color);
-  opacity: 0.9;
+  position: relative;
   width: 100%;
   height: 30%;
+  background-color: var(--bg-color);
+  opacity: 0.9;
 }
 
 .guitar-strings {
-  position: fixed;
-  bottom: 30px;
+  position: relative;
+  bottom: auto;
   left: 0;
   right: 0;
   display: flex;
@@ -194,6 +196,7 @@ body {
   justify-content: center;
   gap: 15px;
   padding: 0 30px;
+  margin-top: 20px;
 }
 
 .guitar-string {
@@ -279,12 +282,10 @@ body {
   .meter {
     width: 90%;
     height: 25%;
-    bottom: 58%;
   }
 
   .notes {
-    top: 38%;
-    width: 100%;
+    width: 90%;
   }
 
   .note {
@@ -302,9 +303,9 @@ body {
   }
 
   .guitar-strings {
-    bottom: 15px;
     padding: 0 15px;
     gap: 10px;
+    margin-top: 15px;
   }
 
   .guitar-string {
@@ -334,12 +335,12 @@ body {
   }
 
   .meter {
+    width: 90%;
     height: 22%;
-    bottom: 60%;
   }
 
   .notes {
-    top: 35%;
+    width: 90%;
   }
 
   .note {
@@ -357,9 +358,9 @@ body {
   }
 
   .guitar-strings {
-    bottom: 10px;
     padding: 0 10px;
     gap: 8px;
+    margin-top: 10px;
   }
 
   .guitar-string {
