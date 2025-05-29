@@ -174,7 +174,9 @@ section {
   height: 400px;
   width: 400px;
   margin: auto 0;
+
 }
+
 
 .section__text {
   align-self: center;
@@ -285,6 +287,10 @@ section {
 
 .about-pic {
   border-radius: 2rem;
+  transition: transform 300ms ease;
+}
+.about-pic:hover {
+  transform: scale(1.1); /* Zoom in by 10% */
 }
 
 .arrow {
@@ -368,6 +374,10 @@ article .icon {
   border-radius: 2rem;
   width: 90%;
   height: 90%;
+  transition: transform 300ms ease;
+}
+.project-img:hover {
+  transform: scale(1.1); /* Zoom in by 10% */
 }
 
 .project-title {
