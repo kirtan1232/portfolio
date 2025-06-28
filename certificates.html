@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Certificates - Kirtan Shrestha</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .certificates-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 2rem;
+    }
+    .certificate {
+      max-width: 300px;
+      border: 2px solid #ccc;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .certificate img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal img {
+      max-width: 90vw;
+      max-height: 90vh;
+    }
+    .modal:target {
+      display: flex;
+    }
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Kirtan Shrestha</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+    </ul>
+  </nav>
+
+  <section>
+    <h1 style="text-align: center;">My Certificates</h1>
+    <div class="certificates-container">
+      <a href="#img1" class="certificate">
+        <img src="certificates/Google Ads Apps Certification.PNG" alt="Certificate 1" />
+      </a>
+      <a href="#img2" class="certificate">
+        <img src="certificates/IOA.PNG" alt="Certificate 2" />
+      </a>
+      <!-- Add more as needed -->
+    </div>
+  </section>
+
+  <!-- Modals -->
+  <div id="img1" class="modal">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="certificates/Google Ads Apps Certification.PNG" alt="Certificate 1 Full" />
+  </div>
+  <div id="img2" class="modal">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="certificates/IOA.PNG" alt="Certificate 2 Full" />
+  </div>
+
+  <footer>
+    <p style="text-align: center;">&copy; 2025 Kirtan Shrestha. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
