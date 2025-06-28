@@ -13,17 +13,33 @@
       gap: 20px;
       padding: 2rem;
     }
+
     .certificate {
-      max-width: 300px;
-      border: 2px solid #ccc;
-      padding: 10px;
-      border-radius: 8px;
-      cursor: pointer;
+    width: 280px;
+    height: 360px;
+    border: 2px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
+    .certificate:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
     .certificate img {
-      width: 100%;
-      height: auto;
-      border-radius: 4px;
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
     }
 
     /* Modal styles */
@@ -38,10 +54,12 @@
       background-color: rgba(0, 0, 0, 0.9);
       justify-content: center;
       align-items: center;
+      flex-direction: column;
     }
     .modal img {
       max-width: 90vw;
-      max-height: 90vh;
+      max-height: 80vh;
+      margin-bottom: 20px;
     }
     .modal:target {
       display: flex;
@@ -54,6 +72,19 @@
       color: white;
       text-decoration: none;
       font-weight: bold;
+    }
+
+    .share-btn {
+      background-color: #fff;
+      padding: 8px 16px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      color: #000;
+    }
+    .share-btn:hover {
+      background-color: #f0f0f0;
     }
   </style>
 </head>
@@ -74,22 +105,41 @@
       <a href="#img2" class="certificate">
         <img src="certificates/IOA.PNG" alt="Certificate 2" />
       </a>
-      <!-- Add more as needed -->
     </div>
   </section>
 
-  <!-- Modals -->
+  <!-- Modal for Certificate 1 -->
   <div id="img1" class="modal">
     <a href="#" class="close-btn">&times;</a>
     <img src="certificates/Google Ads Apps Certification.PNG" alt="Certificate 1 Full" />
+    <button class="share-btn" onclick="shareImage('certificates/Google Ads Apps Certification.PNG')">Share Image</button>
   </div>
+
+  <!-- Modal for Certificate 2 -->
   <div id="img2" class="modal">
     <a href="#" class="close-btn">&times;</a>
     <img src="certificates/IOA.PNG" alt="Certificate 2 Full" />
+    <button class="share-btn" onclick="shareImage('certificates/IOA.PNG')">Share Image</button>
   </div>
 
   <footer>
     <p style="text-align: center;">&copy; 2025 Kirtan Shrestha. All Rights Reserved.</p>
   </footer>
+
+  <script>
+    function shareImage(imagePath) {
+      const fullUrl = `${window.location.origin}/${imagePath}`;
+      if (navigator.share) {
+        navigator.share({
+          title: 'Certificate',
+          url: fullUrl
+        }).catch(console.error);
+      } else {
+        navigator.clipboard.writeText(fullUrl).then(() => {
+          alert("Image link copied to clipboard!");
+        });
+      }
+    }
+  </script>
 </body>
 </html>
